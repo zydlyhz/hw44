@@ -1,0 +1,9 @@
+#,Browser,Page,Field,isPresent,Value,Size,Location
+01,Safari,index.php,First Name, true,Jeeka,(386x42)
+02,Safari,index.ohp,Last Name,true,Tursunbai,(386x42),(860x181)
+03,Safari,index.php,Email, true,jtursunbaeva@gmail.com,(386x42)(435x261)
+04,Safari,index.php,Phone, true,jtursunbaeva@gmail.com,(386x42),(860x261)
+05,Safari,confirmation.php,First Name,false,Jeeka,(79x42),null
+06,Safari,confirmation.php,Last Name,true,Tursunbai,(125x42),(866x182)
+07,Safari,confirmation.php,Email,true,jtursunbaeva@gmail.com,(304x42),(441x266)
+08,Safari,confirmation.php,Phone,true,415 555-5555,(170x42),(866x266)

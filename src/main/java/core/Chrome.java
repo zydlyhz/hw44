@@ -1,7 +1,7 @@
 package core;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.*;
+import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -10,7 +10,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.*;
 
-public class Firefox {
+public class Chrome {
 
 	static Properties p = new Properties();
 	static Writer report;
@@ -52,15 +52,15 @@ public class Firefox {
 		
 		Logger.getLogger("").setLevel(Level.OFF);
 		p.load(new FileInputStream("./input.properties"));
-		report = new FileWriter("./report_02.csv", false);
+		report = new FileWriter("./report_03.csv", false);
 		String driverPath = "";
 			if(System.getProperty("os.name").toUpperCase().contains("MAC"))
-					driverPath = "./resources/webdrivers/mac/geckodriver";
+					driverPath = "./resources/webdrivers/mac/chromedriver";
 		else if (System.getProperty("os.name").toUpperCase().contains("WINDOWS"))
-			driverPath = "./resources/webdrivers/windows/geckodriver.exe";
+			driverPath = "./resources/webdrivers/windows/chromedriver.exe";
 		else throw new IllegalArgumentException("Unknown OS");
-		System.setProperty("webdriver.gecko.driver", driverPath);
-		driver = new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver", driverPath);
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(p.getProperty("url"));
 		
@@ -71,11 +71,11 @@ public class Firefox {
 		report.write(ls);
 		
 // 01 :: First Name
-		report.write("01,Firefox,index.php,First Name, " + 
+		report.write("01,Chrome,index.php,First Name, " + 
 						isElementPresent(By.id(p.getProperty("fname_id"))) + "," + 
 						p.getProperty("fname_value") + "," + 
 						getSize(By.id(p.getProperty("fname_id"))) + "\n");
-		System.out.print("01,Firefox,index.php,First Name, " + 
+		System.out.print("01,Chrome,index.php,First Name, " + 
 						isElementPresent(By.id(p.getProperty("fname_id"))) + "," +
 						p.getProperty("fname_value") + "," + 
 						getSize(By.id(p.getProperty("fname_id"))) + "," + 
@@ -85,7 +85,7 @@ public class Firefox {
 		
 // 02 :: Last Name
 				
-		report.write("02,Firefox,index.ohp,Last Name," + 
+		report.write("02,Chrome,index.ohp,Last Name," + 
 						isElementPresent(By.id(p.getProperty("lname_id"))) + "," +
 						p.getProperty("lname_value") + "," + 
 						getSize(By.id(p.getProperty("lname_id"))) + "," + 
@@ -94,7 +94,7 @@ public class Firefox {
 		
 		
 // 03 :: Email
-		report.write("03,Firefox,index.php,Email, " + 
+		report.write("03,Chrome,index.php,Email, " + 
 						isElementPresent(By.id(p.getProperty("email_id"))) + "," +
 						p.getProperty("email_value") + "," + 
 						getSize(By.id(p.getProperty("email_id"))) + 
@@ -102,13 +102,13 @@ public class Firefox {
 		setValue(By.id(p.getProperty("email_id")), "email_value");
 		
 // 04 :: Phone
-		report.write("04,Firefox,index.php,Phone, " + 
+		report.write("04,Chrome,index.php,Phone, " + 
 						isElementPresent(By.id(p.getProperty("phone_id"))) + "," +
 						p.getProperty("email_value") + "," + 
 						getSize(By.id(p.getProperty("phone_id"))) + "," + 
 						getLocation(By.id(p.getProperty("phone_id"))) + "\n");
 		
-		System.out.print("04,Firefox,index.php,Phone," + 
+		System.out.print("04,Chrome,index.php,Phone," + 
 						isElementPresent(By.id(p.getProperty("phone_id"))) + "," + 
 						p.getProperty("phone_value") + "," + 
 						getSize(By.id(p.getProperty("phone_id"))) + "," + 
@@ -125,38 +125,38 @@ public class Firefox {
 		wait.until(ExpectedConditions.titleIs("Confirmation"));
 		
 // 05 :: First Name
-		report.write("05,Firefox,confirmation.php,First Name," + 
+		report.write("05,Chrome,confirmation.php,First Name," + 
 						isElementPresent(By.id(p.getProperty("fname_value"))) + "," + 
 						p.getProperty("fname_value") + "," + 
 						getSize(By.id(p.getProperty("fname_id"))) + "," + 
 						getLocation(By.id("fname_id")) + "\n");
-		System.out.print("05,Firefox,confirmation.php,First Name," + 
+		System.out.print("05,Chrome,confirmation.php,First Name," + 
 						isElementPresent(By.id(p.getProperty("fname_id"))) + "," + 
 						p.getProperty("fname_value") + "," + 
 						getSize(By.id(p.getProperty("fname_id"))) + "," + 
 						getLocation(By.id(p.getProperty("fname_id"))) + "\n");
 		
 // 06 :: Last Name
-	report.write("06,Firefox,confirmation.php,Last Name," +
+	report.write("06,Chrome,confirmation.php,Last Name," +
 		 isElementPresent(By.id(p.getProperty("lname_id"))) + "," +
 		 p.getProperty("lname_value") + "," +
 		 getSize(By.id(p.getProperty("lname_id"))) + "," +
 		 getLocation(By.id(p.getProperty("lname_id"))) + "\n");
 		
-	System.out.print("06,Firefox,confirmation.php,Last Name," +
+	System.out.print("06,Chrome,confirmation.php,Last Name," +
 		 isElementPresent(By.id(p.getProperty("lname_id"))) + "," +
 		 p.getProperty("lname_value") + "," +
 		 getSize(By.id(p.getProperty("lname_id"))) + "," +
 		 getLocation(By.id(p.getProperty("lname_id"))) + "\n");		
 		
 // 07 :: Email
-report.write("07,Firefox,confirmation.php,Email," +
+report.write("07,Chrome,confirmation.php,Email," +
 	 isElementPresent(By.id(p.getProperty("email_id"))) + "," +
 	 p.getProperty("email_value") + "," +
 	 getSize(By.id(p.getProperty("email_id"))) + "," +
 	 getLocation(By.id(p.getProperty("email_id"))) + "\n");
 	
-System.out.print("07,Firefox,confirmation.php,Email," +
+System.out.print("07,Chrome,confirmation.php,Email," +
 	 isElementPresent(By.id(p.getProperty("email_id"))) + "," +
 	 p.getProperty("email_value") + "," +
 	 getSize(By.id(p.getProperty("email_id"))) + "," +
@@ -164,13 +164,13 @@ System.out.print("07,Firefox,confirmation.php,Email," +
 		
 
 //08 :: Phone
-report.write("08,Firefox,confirmation.php,Phone," +
+report.write("08,Chrome,confirmation.php,Phone," +
 			isElementPresent(By.id(p.getProperty("phone_id"))) + "," +
 			p.getProperty("phone_value") + "," +
 			getSize(By.id(p.getProperty("phone_id"))) + "," +
 			getLocation(By.id(p.getProperty("phone_id"))) + "\n");
 
- 	System.out.print("08,Firefox,confirmation.php,Phone," +
+ 	System.out.print("08,Chrome,confirmation.php,Phone," +
  			isElementPresent(By.id(p.getProperty("phone_id"))) + "," +
  			p.getProperty("phone_value") + "," +
  			getSize(By.id(p.getProperty("phone_id"))) + "," +

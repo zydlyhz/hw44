@@ -1,0 +1,9 @@
+#,Browser,Page,Field,isPresent,Value,Size,Location
+01,Chrome,index.php,First Name, true,Jeeka,(386x42)
+02,Chrome,index.ohp,Last Name,true,Tursunbai,(386x42),(859x181)
+03,Chrome,index.php,Email, true,jtursunbaeva@gmail.com,(386x42)(434x261)
+04,Chrome,index.php,Phone, true,jtursunbaeva@gmail.com,(386x42),(859x261)
+05,Chrome,confirmation.php,First Name,false,Jeeka,(79x42),null
+06,Chrome,confirmation.php,Last Name,true,Tursunbai,(125x42),(866x182)
+07,Chrome,confirmation.php,Email,true,jtursunbaeva@gmail.com,(304x42),(441x266)
+08,Chrome,confirmation.php,Phone,true,415 555-5555,(170x42),(866x266)

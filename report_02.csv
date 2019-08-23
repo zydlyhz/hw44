@@ -1,0 +1,9 @@
+#,Browser,Page,Field,isPresent,Value,Size,Location
+01,Firefox,index.php,First Name, true,Jeeka,(343x38)
+02,Firefox,index.ohp,Last Name,true,Tursunbai,(343x38),(865x182)
+03,Firefox,index.php,Email, true,jtursunbaeva@gmail.com,(343x38)(440x262)
+04,Firefox,index.php,Phone, true,jtursunbaeva@gmail.com,(343x38),(865x262)
+05,Firefox,confirmation.php,First Name,false,Jeeka,(79x38),null
+06,Firefox,confirmation.php,Last Name,true,Tursunbai,(124x38),(866x183)
+07,Firefox,confirmation.php,Email,true,jtursunbaeva@gmail.com,(303x38),(441x267)
+08,Firefox,confirmation.php,Phone,true,415 555-5555,(170x38),(866x267)
